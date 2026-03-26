@@ -26,4 +26,3 @@ async def on_member_join(member):
         print(f"Роль выдана пользователю {member.name}")
 import os
 bot.run(os.getenv('BOT_TOKEN'))
-
