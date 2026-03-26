@@ -24,4 +24,6 @@ async def on_member_join(member):
     if role:
         await member.add_roles(role)
         print(f"Роль выдана пользователю {member.name}")
-os.getenv('BOT_TOKEN')
+import os
+bot.run(os.getenv('BOT_TOKEN'))
+
