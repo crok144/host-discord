@@ -9,14 +9,13 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_member_join(member):
-    channel_id = 1486288743454474280
-    channel = bot.get_channel(channel_id)
-    
-    if channel:
-        try:
-            await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
-        except Exception as e:
-            print(f"Ошибка при отправке сообщения: {e}")
+    channel_id = 1486288743454474280 
+    try:
+        channel = await bot.fetch_channel(channel_id)
+        await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
+        print(f"Сообщение успешно отправлено в канал {channel_id}")
+    except Exception as e:
+        print(f"ОШИБКА ПРИВЕТСТВИЯ: {e}")
 
     role_id = 148283396685762673 
     role = member.guild.get_role(role_id)
