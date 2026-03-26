@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_member_join(member):
-    channel_id = 1271431183691022398
+    channel_id = 1486288743454474280
     channel = bot.get_channel(channel_id)
     
     if channel:
