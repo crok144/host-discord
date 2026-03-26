@@ -1,3 +1,4 @@
+import os
 import discord
 from discord.ext import commands
 
@@ -23,4 +24,4 @@ async def on_member_join(member):
     if role:
         await member.add_roles(role)
         print(f"Роль выдана пользователю {member.name}")
-bot.run("MTQ4NjQzNDA4MTkwOTY0MTIzNg.Gyql01.l-ap86ndyCx8SUlKrwFWgGGb3APhGDwFhNRtsQ")
+bot.run(os.getenv('BOT_TOKEN'))
