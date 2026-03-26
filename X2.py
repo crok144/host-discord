@@ -8,16 +8,24 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_member_join(member):
-    channel_id = 1486288743454474280
+    channel_id = 1486288743454474280 # ПРОВЕРЬТЕ ЭТОТ ID
     channel = bot.get_channel(channel_id)
     
     if channel:
-        await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть <:Xhi:1486275957370261645>")
-  
-    role_id = 148283396685762673
+        try:
+            await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
+        except Exception as e:
+            print(f"Ошибка при отправке сообщения: {e}")
+
+    role_id = 148283396685762673 
     role = member.guild.get_role(role_id)
     
     if role:
-        await member.add_roles(role)
-        print(f"Роль выдана пользователю {member.name}")
+        try:
+            await member.add_roles(role)
+            print(f"Роль успешно выдана: {member.name}")
+        except Exception as e:
+            print(f"Не удалось выдать роль: {e}")
+    else:
+        print(f"Роль с ID {role_id} не найдена на сервере!")
 bot.run(os.getenv('BOT_TOKEN'))
