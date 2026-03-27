@@ -36,7 +36,7 @@ async def on_member_join(member):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="SIGMA"))
+    await bot.change_presence(activity=discord.Game(name="Sigma"))
     print(f"Запущен как {bot.user}")
 
 bot.run(os.getenv('BOT_TOKEN'))
