@@ -22,6 +22,11 @@ async def on_member_remove(member):
         print(f"Пользователь {member.name} вышел с сервера.")
 
 @bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Game(name="Я сигма"))
+    print(f"Запущен как {bot.user}")
+
+@bot.event
 async def on_member_join(member):
     channel_id = 1486288743454474280
     channel = bot.get_channel(channel_id)
