@@ -34,4 +34,9 @@ async def on_member_join(member):
         await member.add_roles(role)
         print(f"Роль выдана пользователю {member.name}")
 
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Game(name="Я сигма"))
+    print(f"Запущен как {bot.user}")
+
 bot.run(os.getenv('BOT_TOKEN'))
