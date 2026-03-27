@@ -29,7 +29,7 @@ async def on_member_join(member):
         await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
     
     try:
-        role_id = 1486283396857626731
+        role_id = 1486283396857626731 
         role = member.guild.get_role(role_id)
         if role:
             await member.add_roles(role)
@@ -39,4 +39,4 @@ async def on_member_join(member):
     except Exception as e:
         print(f"Ошибка при выдаче роли: {e}")
 
-bot.run('ВАШ_ТОКЕН_ЗДЕСЬ') 
+bot.run(os.getenv('BOT_TOKEN'))
