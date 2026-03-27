@@ -10,13 +10,13 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
-    print("А вот и я!")
+    await bot.change_presence(activity=discord.Game(name="Sigma"))
+    print(f"А вот и я! Запущен как {bot.user}")
 
 @bot.event
 async def on_member_remove(member):
     channel_id = 1486995771365523568
     channel = bot.get_channel(channel_id)
-
     if channel:
         await channel.send(f"{member.name}, ты меня УТОМЛЯЕШЬ!")
         print(f"Пользователь {member.name} вышел с сервера.")
@@ -27,16 +27,11 @@ async def on_member_join(member):
     channel = bot.get_channel(channel_id)
     if channel:
         await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
-
-    role_id = 1486283396685762673
+    
+    role_id = 148628339685762673
     role = member.guild.get_role(role_id)
     if role:
         await member.add_roles(role)
         print(f"Роль выдана пользователю {member.name}")
-
-@bot.event
-async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="Sigma"))
-    print(f"Запущен как {bot.user}")
 
 bot.run(os.getenv('BOT_TOKEN'))
