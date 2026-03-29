@@ -23,7 +23,7 @@ async def on_member_remove(member):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(name="Sigma"))
+    await bot.change_presence(activity=discord.Game(name="Я фембой"))
     print(f"Запущен как {bot.user}")
 
 @bot.event
