@@ -33,7 +33,7 @@ async def on_member_join(member):
     if channel:
         await channel.send(f"Добро пожаловать в мой мир, {member.mention}! Рады тебя видеть!")
 
-    role_id = 148628339685762673
+    role_id = 1486283396685762673
     role = member.guild.get_role(role_id)
     if role:
         await member.add_roles(role)
